@@ -1,6 +1,6 @@
-package net.gamebacon.modelentityapi.model;
+package net.gamebacon.entitymodelapi.model;
 
-import net.gamebacon.modelentityapi.event.Action;
+import net.gamebacon.entitymodelapi.event.Action;
 import org.bukkit.Material;
 import org.bukkit.event.player.PlayerInteractAtEntityEvent;
 import org.bukkit.event.player.PlayerInteractEvent;

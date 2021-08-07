@@ -1,7 +1,7 @@
-package net.gamebacon.modelentityapi.util;
+package net.gamebacon.entitymodelapi.util;
 
-import net.gamebacon.modelentityapi.event.ModelListener;
-import net.gamebacon.modelentityapi.model.Model;
+import net.gamebacon.entitymodelapi.event.ModelListener;
+import net.gamebacon.entitymodelapi.model.Model;
 import org.bukkit.NamespacedKey;
 import org.bukkit.entity.ArmorStand;
 import org.bukkit.entity.Entity;

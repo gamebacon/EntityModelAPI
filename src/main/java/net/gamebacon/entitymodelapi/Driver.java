@@ -1,7 +1,7 @@
-package net.gamebacon.modelentityapi;
+package net.gamebacon.entitymodelapi;
 
-import net.gamebacon.modelentityapi.model.Model;
-import net.gamebacon.modelentityapi.util.ModelBuilder;
+import net.gamebacon.entitymodelapi.model.Model;
+import net.gamebacon.entitymodelapi.util.ModelBuilder;
 import net.kyori.adventure.text.Component;
 import org.bukkit.Material;
 

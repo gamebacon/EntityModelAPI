@@ -1,6 +1,6 @@
-net/gamebacon/modelentityapi/util/ModelBuilder.class
-net/gamebacon/modelentityapi/util/Util.class
-net/gamebacon/modelentityapi/model/Model.class
-net/gamebacon/modelentityapi/event/Action.class
-net/gamebacon/modelentityapi/event/ModelListener.class
-net/gamebacon/modelentityapi/Driver.class
+net/gamebacon/entitymodelapi/event/ModelListener.class
+net/gamebacon/entitymodelapi/util/Util.class
+net/gamebacon/entitymodelapi/util/ModelBuilder.class
+net/gamebacon/entitymodelapi/model/Model.class
+net/gamebacon/entitymodelapi/event/Action.class
+net/gamebacon/entitymodelapi/Driver.class

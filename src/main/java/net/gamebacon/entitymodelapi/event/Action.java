@@ -1,4 +1,4 @@
-package net.gamebacon.modelentityapi.event;
+package net.gamebacon.entitymodelapi.event;
 
 import org.bukkit.event.Event;
 

@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>net.gamebacon</groupId>
-    <artifactId>ModelEntityAPI</artifactId>
+    <artifactId>EntityModelAPI</artifactId>
     <version>1.0.0</version>
     <name>EntityModelAPI</name>
     <description>An API for managing armorstands with durability models</description>
