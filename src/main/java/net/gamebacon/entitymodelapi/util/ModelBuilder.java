@@ -58,6 +58,7 @@ public class ModelBuilder {
     }
     public Model bulid() {
         meta.setDisplayName(name);
+        model.getItem().setItemMeta(meta);
         Util.models.put(model.getUuid(), model);
         return model;
     }
