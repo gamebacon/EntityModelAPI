@@ -17,7 +17,7 @@ public class Util {
 
     public static final HashMap<UUID, Model> models = new HashMap<>();
     public static final Plugin plugin = JavaPlugin.getProvidingPlugin(ModelBuilder.class);
-    public static final NamespacedKey namespacedKey = new NamespacedKey(plugin, "${project.artifactId}");
+    public static final NamespacedKey namespacedKey = new NamespacedKey(plugin, Model.class.getPackageName());
 
     static {
         plugin.getServer().getPluginManager().registerEvents(new ModelListener(), plugin);
