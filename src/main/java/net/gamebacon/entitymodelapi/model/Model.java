@@ -8,14 +8,15 @@ import org.bukkit.inventory.ItemStack;
 
 import java.util.UUID;
 
-public class Model extends ItemStack {
+public class Model {
     private final UUID uuid;
 
     private Action<PlayerInteractAtEntityEvent> interactEntityEvent;
     private Action<PlayerInteractEvent> interactEvent;
+    private ItemStack item;
 
     public Model(Material material, UUID uuid) {
-        super(material);
+        this.item = new ItemStack(material);
         this.uuid = uuid;
     }
 
@@ -39,4 +40,7 @@ public class Model extends ItemStack {
         this.interactEntityEvent = interactEntityEvent;
     }
 
+    public ItemStack getItem() {
+        return item;
+    }
 }

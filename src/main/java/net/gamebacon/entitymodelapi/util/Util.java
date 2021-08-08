@@ -7,6 +7,7 @@ import org.bukkit.entity.ArmorStand;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.persistence.PersistentDataType;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -24,7 +25,7 @@ public class Util {
     }
 
     public static boolean isModelItem(ItemStack itemStack) {
-        boolean homo = itemStack instanceof Model;//itemStack != null && itemStack.hasItemMeta() && itemStack.getItemMeta().getPersistentDataContainer().has(namespacedKey, PersistentDataType.STRING);
+        boolean homo = itemStack != null && itemStack.hasItemMeta() && itemStack.getItemMeta().getPersistentDataContainer().has(namespacedKey, PersistentDataType.STRING);
         System.out.println(homo);
         return homo;
     }
@@ -32,5 +33,10 @@ public class Util {
     public static boolean isModel(Entity rightClicked) {
         return rightClicked.getType() == EntityType.ARMOR_STAND &&
                 isModelItem(((ArmorStand) rightClicked).getEquipment().getHelmet());
+    }
+
+    public static Model getModel(ItemStack item) {
+        UUID uuid = UUID.fromString(item.getItemMeta().getPersistentDataContainer().get(namespacedKey, PersistentDataType.STRING));
+        return models.get(uuid);
     }
 }

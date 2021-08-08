@@ -7,7 +7,9 @@
     <groupId>net.gamebacon</groupId>
     <artifactId>EntityModelAPI</artifactId>
     <version>1.0.0</version>
+
     <build>
+        <finalName>${project.artifactId}</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

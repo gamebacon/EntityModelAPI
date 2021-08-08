@@ -19,8 +19,8 @@ public class ModelListener implements Listener {
 
         if(!Util.isModelItem(item)) return;
 
-        Model model = (Model) item;
-        Bukkit.broadcastMessage(model.getItemMeta().getDisplayName());
+        Model model = Util.models.get(Util.getModel(item));
+        Bukkit.broadcastMessage(model.getItem().getItemMeta().getDisplayName());
         model.getInteractEvent().execute(event);
     }
 

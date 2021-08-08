@@ -23,7 +23,7 @@ public class ModelBuilder {
 
     private ModelBuilder(Material material, int durability) {
         this.model = new Model(material, UUID.randomUUID());
-        meta = model.getItemMeta();
+        meta = model.getItem().getItemMeta();
 
         Damageable damageable = (Damageable) meta;
         damageable.setDamage(durability);
@@ -58,7 +58,7 @@ public class ModelBuilder {
     }
     public Model bulid() {
         meta.setDisplayName(name);
-        model.setItemMeta(meta);
+        Util.models.put(model.getUuid(), model);
         return model;
     }
 }
