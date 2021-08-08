@@ -2,7 +2,6 @@ package net.gamebacon.entitymodelapi.util;
 
 import net.gamebacon.entitymodelapi.event.Action;
 import net.gamebacon.entitymodelapi.model.Model;
-import net.kyori.adventure.text.Component;
 import org.bukkit.Material;
 import org.bukkit.event.player.PlayerInteractAtEntityEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
@@ -19,7 +18,7 @@ public class ModelBuilder {
     private final Model model;
     private final ItemMeta meta;
 
-    private Component name;
+    private String name;
 
 
     private ModelBuilder(Material material, int durability) {
@@ -38,13 +37,13 @@ public class ModelBuilder {
         return new ModelBuilder(material, durability);
     }
 
-    public ModelBuilder name(Component name) {
+    public ModelBuilder name(String name) {
         this.name = name;
         return this;
     }
 
-    public ModelBuilder lore(Component... name) {
-        meta.lore(Arrays.asList(name));
+    public ModelBuilder lore(String... lores) {
+        meta.setLore(Arrays.asList(lores));
         return this;
     }
 
@@ -58,7 +57,7 @@ public class ModelBuilder {
         return this;
     }
     public Model bulid() {
-        meta.displayName(name);
+        meta.setDisplayName(name);
         model.setItemMeta(meta);
         return model;
     }
