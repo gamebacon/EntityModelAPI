@@ -24,7 +24,9 @@ public class Util {
     }
 
     public static boolean isModelItem(ItemStack itemStack) {
-        return itemStack instanceof Model;//itemStack != null && itemStack.hasItemMeta() && itemStack.getItemMeta().getPersistentDataContainer().has(namespacedKey, PersistentDataType.STRING);
+        boolean homo = itemStack instanceof Model;//itemStack != null && itemStack.hasItemMeta() && itemStack.getItemMeta().getPersistentDataContainer().has(namespacedKey, PersistentDataType.STRING);
+        System.out.println(homo);
+        return homo;
     }
 
     public static boolean isModel(Entity rightClicked) {
