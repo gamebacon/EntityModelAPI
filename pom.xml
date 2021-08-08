@@ -9,8 +9,9 @@
     <version>1.0.0</version>
 
     <properties>
-        <maven.compiler.source>16</maven.compiler.source>
-        <maven.compiler.target>16</maven.compiler.target>
+        <homo>1.8</homo>
+        <maven.compiler.source>${homo}</maven.compiler.source>
+        <maven.compiler.target>${homo}</maven.compiler.target>
     </properties>
 
     <repositories>
