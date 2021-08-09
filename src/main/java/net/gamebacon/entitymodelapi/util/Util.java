@@ -2,10 +2,12 @@ package net.gamebacon.entitymodelapi.util;
 
 import net.gamebacon.entitymodelapi.event.ModelListener;
 import net.gamebacon.entitymodelapi.model.Model;
+import org.bukkit.Location;
 import org.bukkit.NamespacedKey;
 import org.bukkit.entity.ArmorStand;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
+import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.persistence.PersistentDataType;
 import org.bukkit.plugin.Plugin;
@@ -38,5 +40,14 @@ public class Util {
     public static Model getModel(ItemStack item) {
         UUID uuid = UUID.fromString(item.getItemMeta().getPersistentDataContainer().get(namespacedKey, PersistentDataType.STRING));
         return models.get(uuid);
+    }
+
+
+    public static boolean equip(Player player, ItemStack item) {
+        if(player.getInventory().getItemInMainHand() == null) {
+            player.getInventory().setItemInMainHand(item);
+            return true;
+        }
+        return false;
     }
 }

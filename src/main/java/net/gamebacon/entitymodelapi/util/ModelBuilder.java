@@ -6,36 +6,54 @@ import org.bukkit.Material;
 import org.bukkit.event.player.PlayerInteractAtEntityEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemFlag;
+import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.Damageable;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.persistence.PersistentDataType;
 
 import java.util.Arrays;
-import java.util.UUID;
 
 public class ModelBuilder {
 
     private final Model model;
+
     private final ItemMeta meta;
+    private final ItemStack item;
 
     private String name;
 
 
-    private ModelBuilder(Material material, int durability) {
-        this.model = new Model(material, UUID.randomUUID());
-        meta = model.getItem().getItemMeta();
+    private ModelBuilder(String identifier, Material type) {
+        this.item = new ItemStack(type);
+        this.model = new Model(identifier, item);
 
-        Damageable damageable = (Damageable) meta;
-        damageable.setDamage(durability);
+        if(!item.hasItemMeta())
+            throw new IllegalArgumentException(String.format("The item: %s does not contain itemmeta!", type.toString()));
 
-        meta.getPersistentDataContainer().set(Util.namespacedKey, PersistentDataType.STRING, model.getUuid().toString());
-        meta.setUnbreakable(true);
-        meta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES, ItemFlag.HIDE_ENCHANTS, ItemFlag.HIDE_UNBREAKABLE);
+        meta = item.getItemMeta();
+        meta.getPersistentDataContainer().set(Util.namespacedKey, PersistentDataType.STRING, identifier);
     }
 
-    public static ModelBuilder from(Material material, int durability) {
-        return new ModelBuilder(material, durability);
+    public static ModelBuilder as(String identifier, Material type) {
+        return new ModelBuilder(identifier, type);
     }
+
+    public ModelBuilder type(Material material) {
+        item.setType(material);
+        return this;
+    }
+
+    public ModelBuilder durability(int durability) {
+        try {
+            Damageable damageable = (Damageable) meta;
+            damageable.setDamage(durability);
+        } catch (UnsupportedOperationException e) {
+            e.printStackTrace();
+        }
+        return this;
+    }
+
+
 
     public ModelBuilder name(String name) {
         this.name = name;
@@ -52,14 +70,32 @@ public class ModelBuilder {
         return this;
     }
 
+    public ModelBuilder placeable() {
+        model.setPlaceable(true);
+        return this;
+    }
+
+    public ModelBuilder portable() {
+        model.setPortable(true);
+        return this;
+    }
+
     public ModelBuilder onEntityInteract(final Action<PlayerInteractAtEntityEvent> action) {
         model.setInteractEntityEvent(action);
         return this;
     }
-    public Model bulid() {
+
+    public ItemStack bulid() {
+        meta.setUnbreakable(true);
+        meta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES, ItemFlag.HIDE_ENCHANTS, ItemFlag.HIDE_UNBREAKABLE);
         meta.setDisplayName(name);
-        model.getItem().setItemMeta(meta);
+
+        item.setItemMeta(meta);
+
+        if(Util.models.containsKey(model.getIdentifier()))
+            throw new IllegalArgumentException(String.format("A model with the id \"%s\" already exists.", model.getIdentifier()));
+
         Util.models.put(model.getUuid(), model);
-        return model;
+        return model.getItem();
     }
 }

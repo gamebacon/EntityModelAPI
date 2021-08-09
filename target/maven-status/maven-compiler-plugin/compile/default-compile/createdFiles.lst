@@ -1,3 +1,4 @@
+net/gamebacon/entitymodelapi/util/ASBuilder.class
 net/gamebacon/entitymodelapi/event/ModelListener.class
 net/gamebacon/entitymodelapi/util/Util.class
 net/gamebacon/entitymodelapi/util/ModelBuilder.class
