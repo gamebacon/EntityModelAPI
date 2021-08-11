@@ -1,6 +1,11 @@
-net/gamebacon/entitymodelapi/util/ASBuilder.class
+net/gamebacon/entitymodelapi/util/builder/model/BaseBuilder.class
 net/gamebacon/entitymodelapi/event/ModelListener.class
+net/gamebacon/entitymodelapi/util/builder/model/PlaceableModelBuilder.class
+net/gamebacon/entitymodelapi/util/builder/model/ModelBuilder.class
+net/gamebacon/entitymodelapi/util/builder/model/PlaceType.class
+net/gamebacon/entitymodelapi/util/Util$1.class
+net/gamebacon/entitymodelapi/model/PlaceableModel.class
 net/gamebacon/entitymodelapi/util/Util.class
-net/gamebacon/entitymodelapi/util/ModelBuilder.class
 net/gamebacon/entitymodelapi/model/Model.class
 net/gamebacon/entitymodelapi/event/Action.class
+net/gamebacon/entitymodelapi/util/builder/armorstand/ASBuilder.class

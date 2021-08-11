@@ -1,9 +1,10 @@
-package net.gamebacon.entitymodelapi.util;
+package net.gamebacon.entitymodelapi.util.builder.armorstand;
 
 import org.bukkit.Location;
 import org.bukkit.entity.ArmorStand;
 import org.bukkit.entity.EntityType;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.util.EulerAngle;
 
 public class ASBuilder {
 
@@ -12,10 +13,19 @@ public class ASBuilder {
 
     private ASBuilder(Location location) {
         this.armorStand = (ArmorStand) location.getWorld().spawnEntity(location, EntityType.ARMOR_STAND);
+        resetPose();
     }
 
     public static ASBuilder to(Location location) {
         return new ASBuilder(location);
+    }
+
+    public void resetPose() {
+        armorStand.setBodyPose(EulerAngle.ZERO);
+        armorStand.setLeftArmPose(EulerAngle.ZERO);
+        armorStand.setRightArmPose(EulerAngle.ZERO);
+        armorStand.setLeftLegPose(EulerAngle.ZERO);
+        armorStand.setRightLegPose(EulerAngle.ZERO);
     }
 
     public ASBuilder tag(String name) {
@@ -64,7 +74,7 @@ public class ASBuilder {
         return this;
     }
 
-    public ArmorStand build() {
+    public ArmorStand summon() {
         return armorStand;
     }
 
