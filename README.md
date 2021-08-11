@@ -15,3 +15,10 @@ Use with maven:
     <artifactId>EntityModelAPI</artifactId>
     <version>{version}</version>
  </dependency>
+ 
+ 
+         <dependency>
+            <groupId>com.github.gamebacon</groupId>
+            <artifactId>EntityModelAPI</artifactId>
+            <version>0.3.</version>
+        </dependency>
