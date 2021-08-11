@@ -4,21 +4,13 @@
 
 Use with maven:
 
-<repository>
-    <id>jitpack.io</id>
-    <url>https://jitpack.io</url>
-</repository>
+        <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
+        </repository
 
-
-<dependency>
-    <groupId>com.github.gamebacon</groupId>
-    <artifactId>EntityModelAPI</artifactId>
-    <version>{version}</version>
- </dependency>
- 
- 
-         <dependency>
+        <dependency>
             <groupId>com.github.gamebacon</groupId>
             <artifactId>EntityModelAPI</artifactId>
-            <version>0.3.</version>
+            <version>{version}</version>
         </dependency>
