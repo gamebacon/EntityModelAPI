@@ -29,6 +29,10 @@ public class ModelListener implements Listener {
     }
 
 
+    public static int getAge() {
+        return 13;
+    }
+
     @EventHandler
     public void onInteract(PlayerInteractEvent event) {
         final ItemStack item = event.getItem();
