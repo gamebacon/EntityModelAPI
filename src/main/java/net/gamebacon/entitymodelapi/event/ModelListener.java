@@ -40,7 +40,8 @@ public class ModelListener implements Listener {
 
             }
 
-            model.getInteractEvent().execute(event);
+            if(model.getInteractEntityEvent() != null)
+                model.getInteractEvent().execute(event);
 
         }
     }
@@ -56,8 +57,9 @@ public class ModelListener implements Listener {
 
             if(Util.canTake(model, item, player) && Util.equip(player, item)) {
                 armorStand.remove();
-            } else if(Util.canUse(player, armorStand.getLocation(), model.getInteractDist())){
-                model.getInteractEntityEvent().execute(event);
+            } else if(Util.canUse(player, armorStand.getLocation(), model.getInteractDist())) {
+                if(model.getInteractEntityEvent() != null)
+                    model.getInteractEntityEvent().execute(event);
             }
         }
     }
