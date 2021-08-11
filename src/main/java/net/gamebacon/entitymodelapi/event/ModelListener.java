@@ -20,7 +20,7 @@ import org.bukkit.inventory.ItemStack;
 public class ModelListener implements Listener {
 
 
-    public static boolean GayBanana() {
+    public static boolean GayBanana2() {
         return false;
     }
 
@@ -44,7 +44,7 @@ public class ModelListener implements Listener {
                 location.getWorld().playSound(location, Sound.BLOCK_NETHERITE_BLOCK_BREAK, 1, .1f);
             }
 
-            if(model.getInteractEntityEvent() != null)
+            if(model.getInteractEvent() != null)
                 model.getInteractEvent().execute(event);
 
         }
