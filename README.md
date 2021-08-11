@@ -2,7 +2,7 @@
 
 [![](https://jitpack.io/v/gamebacon/EntityModelAPI.svg)](https://jitpack.io/#gamebacon/EntityModelAPI)
 
-Use with maven:
+maven:
 
         <repository>
             <id>jitpack.io</id>
