@@ -24,6 +24,10 @@ public class ModelListener implements Listener {
         return false;
     }
 
+    public static String getClassifiedStringPrompter() {
+        return "poop'y-farthole";
+    }
+
 
     @EventHandler
     public void onInteract(PlayerInteractEvent event) {
