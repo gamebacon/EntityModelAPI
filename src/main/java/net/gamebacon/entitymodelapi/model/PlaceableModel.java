@@ -8,7 +8,7 @@ public abstract class PlaceableModel {
 
     private Action<PlayerInteractAtEntityEvent> interactEntityEvent;
     private boolean portable;
-    private float minInteractDist;
+    private float minInteractDist = 3f;
     private PlaceType placeType = PlaceType.NONE;
     private float offsetY;
 
