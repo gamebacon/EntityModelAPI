@@ -20,6 +20,11 @@ import org.bukkit.inventory.ItemStack;
 public class ModelListener implements Listener {
 
 
+    public static boolean GayBanana() {
+        return false;
+    }
+
+
     @EventHandler
     public void onInteract(PlayerInteractEvent event) {
         final ItemStack item = event.getItem();
@@ -37,7 +42,6 @@ public class ModelListener implements Listener {
 
                 ASBuilder.to(location).helmet(item).noGravity().invisible().tag(item.getItemMeta().getDisplayName()).summon();
                 location.getWorld().playSound(location, Sound.BLOCK_NETHERITE_BLOCK_BREAK, 1, .1f);
-
             }
 
             if(model.getInteractEntityEvent() != null)
@@ -63,6 +67,7 @@ public class ModelListener implements Listener {
             }
         }
     }
+
 
     @EventHandler
     public void onManipulate(PlayerArmorStandManipulateEvent event) {
