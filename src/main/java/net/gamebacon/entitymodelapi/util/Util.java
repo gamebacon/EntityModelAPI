@@ -53,7 +53,6 @@ public class Util {
 
     public static boolean canPlace(PlayerInteractEvent event, Model model) {
         boolean canPlace = event.getHand() == EquipmentSlot.HAND &&
-                event.getAction() == Action.RIGHT_CLICK_BLOCK &&
                 event.getClickedBlock().getRelative(event.getBlockFace()).getType() == Material.AIR &&
                 placeable(event.getBlockFace(), model.getPlaceType());
 

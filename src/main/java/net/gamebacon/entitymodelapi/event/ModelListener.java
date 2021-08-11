@@ -10,6 +10,7 @@ import org.bukkit.entity.ArmorStand;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerArmorStandManipulateEvent;
 import org.bukkit.event.player.PlayerInteractAtEntityEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
@@ -24,7 +25,7 @@ public class ModelListener implements Listener {
         final ItemStack item = event.getItem();
 
 
-        if(Util.isModelItem(item)) {
+        if(Util.isModelItem(item) && event.getAction() == Action.RIGHT_CLICK_BLOCK) {
             final Player player = event.getPlayer();
             final Model model = Util.getModel(item);
             final Material type = event.getClickedBlock().getType();
