@@ -6,18 +6,18 @@ import org.bukkit.entity.EntityType;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.util.EulerAngle;
 
-public class ASBuilder {
+public class ArmorStandBuilder {
 
     private final ArmorStand armorStand;
 
 
-    private ASBuilder(Location location) {
+    private ArmorStandBuilder(Location location) {
         this.armorStand = (ArmorStand) location.getWorld().spawnEntity(location, EntityType.ARMOR_STAND);
         resetPose();
     }
 
-    public static ASBuilder to(Location location) {
-        return new ASBuilder(location);
+    public static ArmorStandBuilder fromLocation(Location location) {
+        return new ArmorStandBuilder(location);
     }
 
     public void resetPose() {
@@ -28,48 +28,48 @@ public class ASBuilder {
         armorStand.setRightLegPose(EulerAngle.ZERO);
     }
 
-    public ASBuilder tag(String name) {
+    public ArmorStandBuilder displayName(String name) {
         armorStand.setCustomName(name);
         armorStand.setCustomNameVisible(true);
         return this;
     }
 
-    public ASBuilder marker() {
+    public ArmorStandBuilder marker() {
         armorStand.setMarker(true);
         return this;
     }
 
-    public ASBuilder small() {
+    public ArmorStandBuilder small() {
         armorStand.setSmall(true);
         return this;
     }
 
-    public ASBuilder invisible() {
+    public ArmorStandBuilder invisible() {
         armorStand.setVisible(false);
         return this;
     }
 
-    public ASBuilder noPlate() {
+    public ArmorStandBuilder noPlate() {
         armorStand.setBasePlate(false);
         return this;
     }
 
-    public ASBuilder noGravity() {
+    public ArmorStandBuilder noGravity() {
         armorStand.setGravity(false);
         return this;
     }
 
-    public ASBuilder glow() {
+    public ArmorStandBuilder glow() {
         armorStand.setGlowing(true);
         return this;
     }
 
-    public ASBuilder noCollide() {
+    public ArmorStandBuilder noCollide() {
         armorStand.setCollidable(false);
         return this;
     }
 
-    public ASBuilder helmet(ItemStack helmet) {
+    public ArmorStandBuilder helmet(ItemStack helmet) {
         armorStand.getEquipment().setHelmet(helmet, false);
         return this;
     }

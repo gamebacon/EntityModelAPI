@@ -6,6 +6,8 @@ import org.bukkit.event.player.PlayerInteractEvent;
 
 public class ModelBuilder extends BaseBuilder<ModelBuilder> {
 
+
+
     protected ModelBuilder(final Material type) {
         super(type);
     }
@@ -19,11 +21,12 @@ public class ModelBuilder extends BaseBuilder<ModelBuilder> {
     }
 
 
+    /*
     public ModelBuilder onInteract(final Action<PlayerInteractEvent> action) {
         model.setInteractEvent(action);
         return this;
     }
-
+     */
 
 
 

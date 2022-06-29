@@ -25,11 +25,23 @@ public class PlaceableModelBuilder extends ModelBuilder {
         return this;
     }
 
+
+    /**
+     * @param interactCommand
+     * @return the command to execute on interact
+     *  use placeholder {PLAYER} to reference the player interacting.
+     */
+    public PlaceableModelBuilder interactCommand(String interactCommand) {
+        model.setInteractCommand(interactCommand);
+        return this;
+    }
+
     public PlaceableModelBuilder offsetY(float y) {
         model.setOffsetY(y);
         return this;
     }
 
+    @Deprecated
     public PlaceableModelBuilder onEntityInteract(final Action<PlayerInteractAtEntityEvent> action) {
         model.setInteractEntityEvent(action);
         return this;

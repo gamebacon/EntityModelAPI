@@ -1,43 +1,110 @@
 package net.gamebacon.entitymodelapi.model;
 
 import net.gamebacon.entitymodelapi.event.Action;
-import org.bukkit.event.player.PlayerInteractEvent;
+import net.gamebacon.entitymodelapi.util.builder.model.PlaceType;
+import org.bukkit.event.player.PlayerInteractAtEntityEvent;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.UUID;
 
-public class Model extends PlaceableModel {
-    private final UUID uuid = UUID.randomUUID();
-    private final ItemStack item;
+public class Model {
 
-    private Action<PlayerInteractEvent> interactEvent;
-    private String identifier;
+    private final UUID uuid;
 
-    public Model(ItemStack item) {
+    private boolean portable;
+    private float minInteractDist = 3f;
+    private PlaceType placeType = PlaceType.NONE;
+    private float offsetY;
+    private String interactCommand;
+
+    private transient UUID entityUUID;
+    private transient ItemStack item;
+    private Action<PlayerInteractAtEntityEvent> interactEntityEvent;
+
+    public Model(ItemStack itemStack) {
+        this.item = itemStack;
+        this.uuid = UUID.randomUUID();
+    }
+
+    public PlaceType getPlaceType() {
+        return placeType;
+    }
+
+    public void setPlaceType(PlaceType placeType) {
+        this.placeType = placeType;
+    }
+
+    public void setOffsetY(float y) {
+        this.offsetY = y;
+    }
+
+    public float getOffsetY() {
+        return offsetY;
+    }
+
+    public void setPortable(boolean b) {
+        this.portable = b;
+    }
+
+    public boolean isPortable() {
+        return portable;
+    }
+
+    public void setMinimumInteractDistance(float minDistance) {
+        this.minInteractDist = minDistance;
+    }
+
+    public float getMaxInteractDistance() {
+        return minInteractDist;
+    }
+
+    @Deprecated
+    public Action<PlayerInteractAtEntityEvent> getInteractEntityEvent() {
+        return interactEntityEvent;
+    }
+
+    @Deprecated
+    public void setInteractEntityEvent(Action<PlayerInteractAtEntityEvent> interactEntityEvent) {
+        this.interactEntityEvent = interactEntityEvent;
+    }
+
+    public void setEntityUUID(UUID entityUUID) {
+        this.entityUUID = entityUUID;
+    }
+
+    public UUID getEntityUUID() {
+        return entityUUID;
+    }
+
+
+    public void setItem(ItemStack item) {
         this.item = item;
-    }
-    public Action<PlayerInteractEvent> getInteractEvent() {
-        return interactEvent;
-    }
-
-    public void setInteractEvent(Action<PlayerInteractEvent> interactEvent) {
-        this.interactEvent = interactEvent;
-    }
-
-    public UUID getUuid() {
-        return uuid;
     }
 
     public ItemStack getItem() {
         return item;
     }
 
-    public String getIdentifier() {
-        return identifier;
+    public UUID getUUID() {
+        return uuid;
     }
 
-    public void setIdentifier(String identifier) {
-        this.identifier = identifier;
+    public String toString() {
+        return String.format("{uuid=\"%s\", portable=\"%s\", minInteractDist=\"%f\", placeType=\"%s\", offsetY=\"%f\", interactCommand=\"%s\"}",
+                uuid,
+                portable,
+                minInteractDist,
+                placeType.toString(),
+                offsetY,
+                interactCommand
+        );
     }
 
+    public String getInteractCommand() {
+        return interactCommand;
+    }
+
+    public void setInteractCommand(String interactCommand) {
+        this.interactCommand = interactCommand;
+    }
 }

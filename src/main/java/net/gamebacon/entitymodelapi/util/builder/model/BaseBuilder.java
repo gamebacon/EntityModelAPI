@@ -1,8 +1,9 @@
 package net.gamebacon.entitymodelapi.util.builder.model;
 
+import net.gamebacon.entitymodelapi.api.EntityAPI;
 import net.gamebacon.entitymodelapi.model.Model;
-import net.gamebacon.entitymodelapi.util.Util;
 import org.bukkit.Material;
+import org.bukkit.NamespacedKey;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.Damageable;
@@ -43,17 +44,14 @@ public abstract class BaseBuilder<T extends BaseBuilder<T>> {
         return (T) this;
     }
 
-    public ItemStack build(final String identifier) {
-        model.setIdentifier(identifier);
+    public ItemStack build(EntityAPI api) {
+
         meta.setUnbreakable(true);
         meta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES, ItemFlag.HIDE_ENCHANTS, ItemFlag.HIDE_UNBREAKABLE);
-        meta.getPersistentDataContainer().set(Util.mainKey, PersistentDataType.STRING, identifier);
+
+        meta.getPersistentDataContainer().set(new NamespacedKey(api.getPlugin(), "mainKey"), PersistentDataType.STRING, model.toString());
+
         item.setItemMeta(meta);
-
-        if(Util.models.containsKey(model.getIdentifier()))
-            throw new IllegalArgumentException(String.format("A model with the id \"%s\" already exists.", model.getIdentifier()));
-
-        Util.models.put(model.getIdentifier(), model);
         return model.getItem();
     }
 
